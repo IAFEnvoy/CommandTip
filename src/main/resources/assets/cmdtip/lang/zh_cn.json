@@ -1,0 +1,13 @@
+{
+  "cmdtip.advancement.text": "/advancement (grant|revoke) <targets> ... 给予或移除玩家的进度",
+  "cmdtip.advancement.grant.text": "/advancement grant <targets> ... 给予玩家进度",
+  "cmdtip.advancement.revoke.text": "/advancement revoke <targets> ... 移除玩家进度",
+  "cmdtip.ban.text": "/ban <player> [<reason=\"\">] 封禁玩家",
+  "cmdtip.ban-ip.text": "/ban-ip <player> [<reason=\"\">] 封禁玩家ip",
+  "cmdtip.banlist.text": "/banlist (players|ips) 查看封禁玩家",
+  "cmdtip.banlist.players.text": "/banlist players 查看封禁的玩家",
+  "cmdtip.banlist.ips.text": "/banlist ips 查看封禁的玩家ip",
+  "cmdtip.clear.text": "/clear [<targets=执行者>] [<item=all>] [<maxCount=all>] 清除玩家物品栏的物品",
+  "cmdtip.give.text": "/give <player> <item> [<count=1>] 将指定数量的物品给与指定玩家",
+  "cmdtip.summon.text": "/summon <entity> <x> <y> <z> 在指定位置召唤指定实体"
+}
