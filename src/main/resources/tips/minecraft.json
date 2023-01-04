@@ -1,0 +1,15 @@
+{
+  "zh_cn": {
+    "advancement": {
+      "grant": "/advancement grant <targets> ... 给予玩家进度",
+      "revoke": "/advancement revoke <targets> ... 移除玩家进度",
+      "?": "/advancement (grant|revoke) <targets> ... 给予或移除玩家的进度"
+    },
+    "give": {
+      "?": "/give <player> <item> [<count=1>] 将指定数量的物品给与指定玩家"
+    }
+  },
+  "en_us": {
+
+  }
+}
