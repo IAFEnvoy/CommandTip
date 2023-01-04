@@ -28,10 +28,14 @@ public class TipManager {
         JsonObject obj = ele.getAsJsonObject();
         if (index == commands.length) return obj.has("?") ? obj.get("?").getAsString() : null;
         String now = commands[index];
-        if (obj.has(now))
-            return getTipDfs(commands, index + 1, obj.get(now));
-        if (obj.has("*"))
-            return getTipDfs(commands, index + 1, obj.get("*"));
+        if (obj.has(now)) {
+            String ret = getTipDfs(commands, index + 1, obj.get(now));
+            if (ret != null) return ret;
+        }
+        if (obj.has("*")) {
+            String ret = getTipDfs(commands, index + 1, obj.get("*"));
+            if (ret != null) return ret;
+        }
         if (obj.has("?")) return obj.get("?").getAsString();
         return null;
     }

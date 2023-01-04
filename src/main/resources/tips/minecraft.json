@@ -5,9 +5,54 @@
       "revoke": "/advancement revoke <targets> ... 移除玩家进度",
       "?": "/advancement (grant|revoke) <targets> ... 给予或移除玩家的进度"
     },
-    "give": {
-      "?": "/give <player> <item> [<count=1>] 将指定数量的物品给与指定玩家"
-    }
+    "attribute": {
+      "*": {
+        "*": {
+          "get": "/attribute <target> <attribute> get [<scale>] 返回指定属性的总值",
+          "base": {
+            "get": "/attribute <target> <attribute> base get [<scale>] 返回指定属性的基值",
+            "set": "/attribute <target> <attribute> base set [<scale>] 用给定值覆盖指定属性的基值",
+            "?": "/attribute <target> <attribute> base (get|set) 读取或修改属性基值"
+          },
+          "modifier": {
+            "add": "... modifier add <uuid> <name> <value> (add|multiply|multiply_base) 添加具有指定属性的属性修饰符",
+            "remove": "... modifier remove <uuid> 删除具有指定UUID的属性修饰符",
+            "value": {
+              "get": "... modifier value get <uuid> [<scale>] 返回具有指定UUID的修饰符的值"
+            },
+            "?": "/attribute <target> <attribute> modifier (add|remove|value get) 根据UUID修改属性修饰符"
+          }
+        }
+      },
+      "?": "/attribute <target> <attribute> (get|base|modifier)... 更改或读取玩家属性"
+    },
+    "ban": "/ban <player> [<reason=\"\">] 将玩家列入黑名单",
+    "ban-ip": "/ban-ip <player/ip> [<reason=\"\">] 把一个IP地址加入黑名单",
+    "banlist": {
+      "ips": "/banlist ips 显示封禁的ip",
+      "players": "/banlist players 显示封禁的玩家",
+      "?": "/banlist (ips|players) 显示封禁列表"
+    },
+    "bossbar": {
+      "add": "/bossbar add <id> <name> 创建一个新的Boss栏",
+      "get": "/bossbar get <id> (max|players|value|visible) 返回请求的指定设置",
+      "list": "/bossbar list 显示现存的Boss栏列表",
+      "remove": "/bossbar remove <id> 移除一个现存的Boss栏",
+      "set": {
+        "*": {
+          "color": "... color (blue|green|pink|purple|red|white|yellow) 设置Boss栏内容的颜色和名称的颜色",
+          "max": "/bossbar set <id> max <value> 设置Boss栏的最大值",
+          "name": "/bossbar set <id> name <JSON> 设置Boss栏的名称",
+          "players": "/bossbar set <id> players <target> 设置哪些玩家可以看见Boss栏，缺省此项以设置为没有玩家",
+          "style": "... style (progress|notched_6|notched_10|notched_12|notched_20) 设置Boss栏在视觉上分成几段",
+          "value": "/bossbar set <id> value <value> 设置Boss栏的当前值",
+          "visible": "/bossbar set <id> value <boolean> 设置Boss栏是否可见"
+        },
+        "?": "/bossbar set <id> (color|max|name|players|style|value|visible) 设置Boss栏属性"
+      },
+      "?": "/bossbar (add|get|list|remove|set) 用于创建或修改Boss栏"
+    },
+    "give":  "/give <target> <item> [<count>] 将指定数量的物品给与指定玩家"
   },
   "en_us": {
 
