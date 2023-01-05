@@ -18,12 +18,12 @@ public class FileUtil {
         return buffer.toString();
     }
 
-    public static JsonObject readResourceAsJson(String path, Language lang) {
+    public static JsonObject readResourceAsJson(String path) {
         try {
             InputStream listFile = FileUtil.class.getResourceAsStream(path);
             assert listFile != null;
             String data = FileUtil.readByLines(new InputStreamReader(listFile));
-            return new JsonParser().parse(data).getAsJsonObject().get(lang.getShortName()).getAsJsonObject();
+            return new JsonParser().parse(data).getAsJsonObject();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
