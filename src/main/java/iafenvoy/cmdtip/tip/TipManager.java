@@ -29,7 +29,7 @@ public class TipManager {
         return "";
     }
 
-    private String getTipDfs(String[] commands, int index, JsonElement ele, JsonObject base) {// *->any ?->default |->link
+    private String getTipDfs(String[] commands, int index, JsonElement ele, JsonObject base) {// *->any ?->default |->link ~->local link
         if (!ele.isJsonObject()) return ele.getAsString();
         JsonObject obj = ele.getAsJsonObject();
         if (obj.has("|")) {
@@ -39,6 +39,10 @@ public class TipManager {
         if (index == commands.length) return obj.has("?") ? obj.get("?").getAsString() : null;
         String now = commands[index];
         if (obj.has(now)) {
+            if (obj.get(now).isJsonObject() && obj.get(now).getAsJsonObject().has("~")) {
+                now = obj.get(now).getAsJsonObject().get("~").getAsString();
+                if (!obj.has(now)) return null;
+            }
             String ret = getTipDfs(commands, index + 1, obj.get(now), base);
             if (ret != null) return ret;
         }
