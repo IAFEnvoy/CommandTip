@@ -1,23 +1,47 @@
 {
   "zh_cn": {
-    "/br": {"|": "/brush"},
+    "/br": {
+      "|": "/brush"
+    },
     "/brush": {
-      "forest": "//brush forest <形状> [半径] [密度] <种类> 森林刷子",
-      "c": "//brush c [-h] <方块> [半径] [高度] 圆柱体刷子",
-      "cyl": "//brush cyl [-h] <方块> [半径] [高度] 圆柱体刷子",
-      "cylinder": "//brush cylinder [-h] <方块> [半径] [高度] 圆柱体刷子",
-      "set": "//brush set <形状> [半径] <样式>",
+      "forest": "//brush forest <形状> [半径] [密度] <种类> 森林刷子，同//forest",
+      "c": {
+        "~": "cylinder"
+      },
+      "cyl": {
+        "~": "cylinder"
+      },
+      "cylinder": "//brush cylinder [-h] <方块> [半径] [高度] 圆柱体刷子，同//cyl",
+      "set": "//brush set <形状> [半径] <样式> 设置方块刷子，同//set",
       "apply": "//brush apply <形状> [半径] <forest|item|set>",
-      "deform": "//brush deform [-or] <形状> [半径] <表达式>",
+      "deform": "//brush deform [-or] <形状> [半径] <表达式> 由表达式指定的形变刷子，同//deform",
       "lower": "//brush lower <形状> [半径]",
-      "butcher": "//brush butcher",
-      "kill": "//brush kill",
+      "butcher": "//brush (butcher/kill) 移除生物刷子，同/butcher",
+      "kill": {
+        "~": "butcher"
+      },
       "paint": "/br paint",
-      "none": "//brush none",
-      "unbind": "//brush unbind",
-      "copy": "//brush copy",
-      "clipboard": "/br clipboard",
-      "gravity": "//brush gravity",
+      "none": {
+        "~": "unbind"
+      },
+      "unbind": "//brush (none|unbind) 取消绑定物品",
+      "copy": {
+        "~": "clipboard"
+      },
+      "clipboard": "//brush (clipboard|copy) 剪贴板刷子，同//paste",
+      "gravity": "//brush gravity [-h] [半径] 重力刷子，刺激重力效果，-h影响从最大Y轴开始的方块，而不是目标Y+半径",
+      "grav": {
+        "~": "gravity"
+      },
+      "ex": {
+        "~": "extinguish"
+      },
+      "extinguish": "//brush extinguish [半径] 扑灭火焰刷子，同//extinguish",
+      "s": {
+        "~": "sphere"
+      },
+      "sphere": "//brush sphere [-h] <方块样式> [半径] 球体刷子，-h创建空心球体，同//sphere",
+      "smooth": "//brush smooth [大小] [迭代次数] [蒙版] 平滑刷子，同//smooth",
       "?": "刷子工具，可以让你从远处建筑和绘制，开启一个刷子的时候，它的功能会绑定到当前手持的物品上，你可以在不同的物品上绑定不同的工具"
     },
     "/calc": {
@@ -123,9 +147,13 @@
       "|": "/schematic"
     },
     "/schematic": {
-      "list": "//schematic list [-dn] [-p <页面>] 显示可用的schematic文件列表，-d旧的在前，-n新的在前",
-      "ls": "//schematic ls [-dn] [-p <页面>] 显示可用的schematic文件列表，-d旧的在前，-n新的在前",
-      "all": "//schematic all [-dn] [-p <页面>] 显示可用的schematic文件列表，-d旧的在前，-n新的在前",
+      "list": "//schematic (list|ls|all) [-dn] [-p <页面>] 显示可用的schematic文件列表，-d旧的在前，-n新的在前",
+      "ls": {
+        "~": "list"
+      },
+      "all": {
+        "~": "list"
+      },
       "load": "//schematic load <文件名> [<格式>] 从剪贴板加载schematic",
       "save": "//schematic save <文件名> [<格式>] 存储schematic到剪贴板",
       "delete": "//schematic delete 删除一个已保存的schematic",
@@ -158,19 +186,32 @@
     "/thaw": "//thaw [半径] 解冻区域",
     "/timeout": "",
     "/toggleplace": "",
-    "/undo": "",
+    "/undo": "撤销上一个操作（如果可以撤销的话）",
     "/walls": "//walls <方块样式> 选区内四周创建墙壁，忽略房顶与地板",
     "/wand": "//wand 使用木斧选择",
     "/watchdog": "",
     "/world": "",
+    "asc": {
+      "|": "ascend"
+    },
+    "ascend": "/ascend [层数] 向上穿过指定层数的墙，默认为1层",
     "biomeinfo": "/biomeinfo [-pt] 获取目标方块的生物群系信息，默认使用选区内的所有方块，-t使用你正在看着的方块，-p使用你当前所在的方块",
     "biomelist": "/biomelist [-p <页面>] 列举所有的生物群系",
-    "br": {"|": "/brush"},
-    "brush": {"|": "/brush"},
+    "br": {
+      "|": "/brush"
+    },
+    "brush": {
+      "|": "/brush"
+    },
     "butcher": "/butcher [-pngabtfl] [半径] 移除生物，不会有掉落物，-p移除宠物，-n移除NPC，-g移除铁傀儡，-a移除动物，-b移除环境生物，-t移除使用自定义名称的生物，-f所有，-l被移除的怪物位置生成闪电",
+    "ceil": "/ceil [-fg] [clearance] 传送到屋顶下方，clearance定义头顶空间大小，-f强制使用飞行以保持静止，-g强制使用玻璃以保持静止",
     "chunkinfo": "/chunkinfo 打印所在区块信息",
     "clearclipboard": "/clearclipboard 清空剪贴板",
     "delchunks": "/delchunks 生成一个可以删除选区覆盖的区块的脚本",
+    "desc": {
+      "|": "descend"
+    },
+    "descend": "/descend [层数] 向下穿过指定层数的墙，默认为1层",
     "ex": {
       "|": "/extinguish"
     },
@@ -190,11 +231,18 @@
     "green": {
       "|": "/green"
     },
+    "j": {
+      "|": "jumpto"
+    },
+    "jumpto": "/jumpto 传送至准星所指向的方块上方",
     "listchunks": "/listchunks 列出选区覆盖的区块",
     "pickaxe": {
       "|": "superpickaxe"
     },
     "pumpkins": "/pumpkins [范围] 生成南瓜丛",
+    "redo": {
+      "|": "/redo"
+    },
     "rem": {
       "|": "remove"
     },
@@ -220,6 +268,7 @@
     "schematic": {
       "|": "/schematic"
     },
+    "size": "/size [尺寸] 设定刷子的尺寸，默认为6",
     "snow": {
       "|": "/snow"
     },
@@ -230,11 +279,14 @@
       "single": "/superpickaxe single 破坏一个方块",
       "area": "/superpickaxe area <半径> 破坏一个以击中的方块为中心长度和宽度为(半径*2+1)的长方体区域",
       "recursive": "/superpickaxe recursive <半径> 破坏与原始方块相接的方块",
-      "recur": "/superpickaxe recur <半径> 破坏与原始方块相接的方块"
+      "recur": {
+        "~": "recursive"
+      }
     },
     "thaw": {
       "|": "/thaw"
     },
+    "thru": "/thru 穿过你面向的墙壁",
     "tool": {
       "tree": "/tool tree [种类] 启动树木生成工具",
       "deltree": "/tool deltree 启动浮空树木、蘑菇清除工具",
@@ -244,10 +296,22 @@
       "cycler": "/tool cycler 被这个工具右键点击的方块会在它们所有的附加值状态中循环(如果支持)",
       "info": "/tool info 使用这个工具右键点击方块时，玩家会收到关于这个方块的信息",
       "floodfill": "/tool floodfill <图案> <范围> 从右键点击的位置开始，填充工具会填充范围内所有相邻的方块并将原始的方块种类设定为给出的图案",
-      "flood": "/tool flood <图案> <范围> 从右键点击的位置开始，填充工具会填充范围内所有相邻的方块并将原始的方块种类设定为给出的图案",
-      "none": "/tool none 解除工具绑定",
-      "unbind": "/tool unbind 解除工具绑定",
+      "flood": {
+        "~": "floodfill"
+      },
+      "none": {
+        "~": "unbind"
+      },
+      "unbind": "/tool (none|unbind) 解除工具绑定",
       "?": "工具是可以“绑定”至一个物品来右键点击使用的效用性功能，手持需要绑定的物品并使用指令就可以绑定一个工具"
+    },
+    "undo": {
+      "|": "/undo"
+    },
+    "unstuck": "/unstuck 可以在你被封在方块里时将你解救出来",
+    "up": "/up [-fg] <距离> 上升任意距离，-f强制使用飞行以保持静止，-g强制使用玻璃以保持静止",
+    "!": {
+      "|": "unstuck"
     }
   }
 }
